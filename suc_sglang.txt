@@ -1,0 +1,611 @@
+
+
+
+
+
+الحمد لله
+اشتغل
+sglang
+
+
+
+
+
+
+
+
+
+
+uv --version
+uv python list
+uv init my_python_project
+cd my_python_project
+uv venv
+source .venv/bin/activate
+uv pip install sglang[all]
+
+uv run 1.py
+without venv
+sudo apt update
+sudo apt install python3-dev build-essential
+
+
+
+
+
+
+
+
+
+(my_python_project) m@m-HP-Z440-Workstation:~/Desktop/sglang/my_python_project$ python -m sglang.launch_server --model-path /home/m/Desktop/my_local_models/Qwen3-0.6B/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca --port 30000
+
+
+
+
+
+
+python3 << 'EOF'
+from openai import OpenAI
+import json
+
+client = OpenAI(
+    api_key="EMPTY",
+    base_url="http://localhost:30000/v1"
+)
+
+response = client.chat.completions.create(
+    model="Qwen/Qwen3-0.6B",
+    messages=[
+        {"role": "user", "content": "اشرح لي الذكاء الاصطناعي بجملتين"}
+    ],
+    temperature=0.7,
+    max_tokens=100
+)
+
+print("الإجابة:", response.choices[0].message.content)
+EOF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+m@m-HP-Z440-Workstation:~/Desktop/sglang$ uv --version
+uv 0.9.26
+m@m-HP-Z440-Workstation:~/Desktop/sglang$ uv python list
+cpython-3.15.0a5-linux-x86_64-gnu                 <download available>
+cpython-3.15.0a5+freethreaded-linux-x86_64-gnu    <download available>
+cpython-3.14.2-linux-x86_64-gnu                   <download available>
+cpython-3.14.2+freethreaded-linux-x86_64-gnu      <download available>
+cpython-3.13.11-linux-x86_64-gnu                  <download available>
+cpython-3.13.11+freethreaded-linux-x86_64-gnu     <download available>
+cpython-3.12.12-linux-x86_64-gnu                  <download available>
+cpython-3.12.3-linux-x86_64-gnu                   /usr/bin/python3.12
+cpython-3.12.3-linux-x86_64-gnu                   /usr/bin/python3 -> python3.12
+cpython-3.11.14-linux-x86_64-gnu                  <download available>
+cpython-3.10.19-linux-x86_64-gnu                  <download available>
+cpython-3.9.25-linux-x86_64-gnu                   <download available>
+cpython-3.8.20-linux-x86_64-gnu                   <download available>
+pypy-3.11.13-linux-x86_64-gnu                     <download available>
+pypy-3.10.16-linux-x86_64-gnu                     <download available>
+pypy-3.9.19-linux-x86_64-gnu                      <download available>
+pypy-3.8.16-linux-x86_64-gnu                      <download available>
+graalpy-3.12.0-linux-x86_64-gnu                   <download available>
+graalpy-3.11.0-linux-x86_64-gnu                   <download available>
+graalpy-3.10.0-linux-x86_64-gnu                   <download available>
+graalpy-3.8.5-linux-x86_64-gnu                    <download available>
+m@m-HP-Z440-Workstation:~/Desktop/sglang$ uv python3 list
+error: unrecognized subcommand 'python3'
+
+  tip: a similar subcommand exists: 'python'
+
+Usage: uv [OPTIONS] <COMMAND>
+
+For more information, try '--help'.
+m@m-HP-Z440-Workstation:~/Desktop/sglang$ python
+Command 'python' not found, did you mean:
+  command 'python3' from deb python3
+  command 'python' from deb python-is-python3
+m@m-HP-Z440-Workstation:~/Desktop/sglang$ python3
+Python 3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> exit()
+m@m-HP-Z440-Workstation:~/Desktop/sglang$ uv init my_python_project
+cd my_python_project
+Initialized project `my-python-project` at `/home/m/Desktop/sglang/my_python_project`
+m@m-HP-Z440-Workstation:~/Desktop/sglang/my_python_project$ uv venvsource .venv/bin/activate
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+m@m-HP-Z440-Workstation:~/Desktop/sglang/my_python_project$ source venv/bin/activate
+bash: venv/bin/activate: No such file or directory
+m@m-HP-Z440-Workstation:~/Desktop/sglang/my_python_project$ source .venv/bin/activate
+(my_python_project) m@m-HP-Z440-Workstation:~/Desktop/sglang/my_python_project$ uv pip install sglang[all]
+Resolved 189 packages in 7.64s
+Prepared 169 packages in 24m 34s
+Installed 189 packages in 380ms
+ + addict==2.4.0
+ + aiohappyeyeballs==2.6.1
+ + aiohttp==3.13.5
+ + aiosignal==1.4.0
+ + airportsdata==20260315
+ + annotated-doc==0.0.4
+ + annotated-types==0.7.0
+ + anthropic==0.97.0
+ + anyio==4.13.0
+ + apache-tvm-ffi==0.1.10
+ + asttokens==3.0.1
+ + attrs==26.1.0
+ + blobfile==3.0.0
+ + build==1.4.4
+ + cache-dit==1.2.0
+ + certifi==2026.4.22
+ + cffi==2.0.0
+ + charset-normalizer==3.4.7
+ + click==8.3.3
+ + cloudpickle==3.1.2
+ + compressed-tensors==0.15.0.1
+ + cuda-bindings==12.9.6
+ + cuda-pathfinder==1.5.3
+ + cuda-python==12.9.0
+ + datasets==4.8.4
+ + decorator==5.2.1
+ + decord2==3.3.0
+ + diffusers==0.36.0
+ + dill==0.4.1
+ + diskcache==5.6.3
+ + distro==1.9.0
+ + docstring-parser==0.18.0
+ + einops==0.8.2
+ + executing==2.2.1
+ + fastapi==0.136.1
+ + filelock==3.29.0
+ + flashinfer-cubin==0.6.3
+ + flashinfer-python==0.6.3
+ + frozenlist==1.8.0
+ + fsspec==2026.2.0
+ + gguf==0.18.0
+ + googleapis-common-protos==1.74.0
+ + grpcio==1.80.0
+ + grpcio-health-checking==1.80.0
+ + grpcio-reflection==1.80.0
+ + h11==0.16.0
+ + hf-transfer==0.1.9
+ + hf-xet==1.4.3
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + huggingface-hub==0.36.2
+ + humanize==4.15.0
+ + idna==3.13
+ + imageio==2.36.0
+ + imageio-ffmpeg==0.5.1
+ + importlib-metadata==8.7.1
+ + interegular==0.3.3
+ + ipython==9.12.0
+ + ipython-pygments-lexers==1.1.1
+ + jedi==0.19.2
+ + jinja2==3.1.6
+ + jiter==0.14.0
+ + jsonschema==4.26.0
+ + jsonschema-specifications==2025.9.1
+ + lark==1.3.1
+ + llguidance==0.7.30
+ + loguru==0.7.3
+ + lxml==6.1.0
+ + markupsafe==3.0.3
+ + matplotlib-inline==0.2.1
+ + modelscope==1.36.1
+ + moviepy==2.2.1
+ + mpmath==1.3.0
+ + msgspec==0.21.1
+ + multidict==6.7.1
+ + multiprocess==0.70.19
+ + nest-asyncio==1.6.0
+ + networkx==3.6.1
+ + ninja==1.13.0
+ + numpy==2.4.4
+ + nvidia-cublas-cu12==12.8.4.1
+ + nvidia-cuda-cupti-cu12==12.8.90
+ + nvidia-cuda-nvrtc-cu12==12.8.93
+ + nvidia-cuda-runtime-cu12==12.8.90
+ + nvidia-cudnn-cu12==9.10.2.21
+ + nvidia-cudnn-frontend==1.22.1
+ + nvidia-cufft-cu12==11.3.3.83
+ + nvidia-cufile-cu12==1.13.1.3
+ + nvidia-curand-cu12==10.3.9.90
+ + nvidia-cusolver-cu12==11.7.3.90
+ + nvidia-cusparse-cu12==12.5.8.93
+ + nvidia-cusparselt-cu12==0.7.1
+ + nvidia-cutlass-dsl==4.3.5
+ + nvidia-ml-py==13.595.45
+ + nvidia-nccl-cu12==2.27.5
+ + nvidia-nvjitlink-cu12==12.8.93
+ + nvidia-nvshmem-cu12==3.3.20
+ + nvidia-nvtx-cu12==12.8.90
+ + openai==2.6.1
+ + openai-harmony==0.0.4
+ + opencv-python-headless==4.10.0.84
+ + opentelemetry-api==1.41.0
+ + opentelemetry-exporter-otlp==1.41.0
+ + opentelemetry-exporter-otlp-proto-common==1.41.0
+ + opentelemetry-exporter-otlp-proto-grpc==1.41.0
+ + opentelemetry-exporter-otlp-proto-http==1.41.0
+ + opentelemetry-proto==1.41.0
+ + opentelemetry-sdk==1.41.0
+ + opentelemetry-semantic-conventions==0.62b0
+ + orjson==3.11.8
+ + outlines==0.1.11
+ + outlines-core==0.1.26
+ + packaging==26.1
+ + pandas==3.0.2
+ + parso==0.8.6
+ + partial-json-parser==0.2.1.1.post7
+ + pexpect==4.9.0
+ + pillow==11.3.0
+ + proglog==0.1.12
+ + prometheus-client==0.25.0
+ + prompt-toolkit==3.0.52
+ + propcache==0.4.1
+ + protobuf==6.33.6
+ + psutil==7.2.2
+ + ptyprocess==0.7.0
+ + pure-eval==0.2.3
+ + py-spy==0.4.1
+ + pyarrow==24.0.0
+ + pybase64==1.4.3
+ + pycountry==26.2.16
+ + pycparser==3.0
+ + pycryptodomex==3.23.0
+ + pydantic==2.13.3
+ + pydantic-core==2.46.3
+ + pygments==2.20.0
+ + pyproject-hooks==1.2.0
+ + python-dateutil==2.9.0.post0
+ + python-dotenv==1.2.2
+ + python-multipart==0.0.26
+ + pyyaml==6.0.1
+ + pyzmq==27.1.0
+ + quack-kernels==0.2.4
+ + referencing==0.37.0
+ + regex==2026.4.4
+ + remote-pdb==2.1.0
+ + requests==2.33.1
+ + rpds-py==0.30.0
+ + runai-model-streamer==0.15.8
+ + safetensors==0.7.0
+ + scipy==1.17.1
+ + sentencepiece==0.2.1
+ + setproctitle==1.3.7
+ + setuptools==82.0.1
+ + sgl-kernel==0.3.21
+ + sglang==0.5.9
+ + six==1.17.0
+ + smg-grpc-proto==0.4.6
+ + sniffio==1.3.1
+ + soundfile==0.13.1
+ + st-attn==0.0.7
+ + stack-data==0.6.3
+ + starlette==1.0.0
+ + sympy==1.14.0
+ + tabulate==0.10.0
+ + tiktoken==0.12.0
+ + timm==1.0.16
+ + tokenizers==0.22.2
+ + torch==2.9.1
+ + torch-c-dlpack-ext==0.1.5
+ + torch-memory-saver==0.0.9
+ + torchao==0.9.0
+ + torchaudio==2.9.1
+ + torchcodec==0.8.0
+ + torchvision==0.24.1
+ + tqdm==4.67.3
+ + traitlets==5.14.3
+ + transformers==4.57.1
+ + triton==3.5.1
+ + typing-extensions==4.15.0
+ + typing-inspection==0.4.2
+ + urllib3==2.6.3
+ + uvicorn==0.46.0
+ + uvloop==0.22.1
+ + vsa==0.0.4
+ + wcwidth==0.6.0
+ + xgrammar==0.1.27
+ + xxhash==3.6.0
+ + yarl==1.23.0
+ + zipp==3.23.1
+(my_python_project) m@m-HP-Z440-Workstation:~/Desktop/sglang/my_python_project$ uv run 1.py
+tokenizer_config.json: 9.73kB [00:00, 15.4MB/s]
+vocab.json: 2.78MB [00:00, 9.98MB/s]
+merges.txt: 1.67MB [00:00, 9.15MB/s]
+tokenizer.json: 100%|██████████████████████| 11.4M/11.4M [00:01<00:00, 6.27MB/s]
+config.json: 100%|█████████████████████████████| 726/726 [00:00<00:00, 5.22MB/s]
+model.safetensors:  93%|█████████████████▋ | 1.40G/1.50G [05:43<00:22, 4.4model.safetensors:  94%|█████████████████▊ | 1.41G/1.50G [05:45<00:22, 4.2model.safetensors:  99%|██████████████████▊| 1.49G/1.50G [05:55<00:01, 6.0model.safetensors: 100%|███████████████████| 1.50G/1.50G [05:56<00:00, 6.3model.safetensors: 100%|███████████████████| 1.50G/1.50G [05:57<00:00, 4.21MB/s]
+generation_config.json: 100%|████████████| 239/239 [00:00<00:00, 1.12MB/s]
+<think>
+Okay, the user asked, "Who are you?" I need to respond in a way that's friendly and helpful. Let me start by acknowledgi(my_python_project) m@m-HP-Z440-Workstation:~/Desktop/sglang/my_python_project$ python -m sglang.launch_server --model-path Qwen/Qwen3-0.6B --port 30000
+/tmp/tmpdsz8c8vr/cuda_utils.c:6:10: fatal error: Python.h: No such file or directory
+    6 | #include <Python.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/layers/attention/fla/utils.py:212: UserWarning: Triton is not supported on current platform, roll back to CPU.
+  warnings.warn(
+config.json: 100%|█████████████████████████████████████████████████████████████████████| 726/726 [00:00<00:00, 2.50MB/s]
+generation_config.json: 100%|██████████████████████████████████████████████████████████| 239/239 [00:00<00:00, 1.02MB/s]
+[2026-04-24 02:47:18] INFO server_args.py:1835: Attention backend not specified. Use flashinfer backend by default.
+[2026-04-24 02:47:20] server_args=ServerArgs(model_path='Qwen/Qwen3-0.6B', tokenizer_path='Qwen/Qwen3-0.6B', tokenizer_mode='auto', tokenizer_worker_num=1, skip_tokenizer_init=False, load_format='auto', model_loader_extra_config='{}', trust_remote_code=False, context_length=None, is_embedding=False, enable_multimodal=None, revision=None, model_impl='auto', host='127.0.0.1', port=30000, fastapi_root_path='', grpc_mode=False, skip_server_warmup=False, warmups=None, nccl_port=None, checkpoint_engine_wait_weights_before_ready=False, dtype='auto', quantization=None, quantization_param_path=None, kv_cache_dtype='auto', enable_fp32_lm_head=False, modelopt_quant=None, modelopt_checkpoint_restore_path=None, modelopt_checkpoint_save_path=None, modelopt_export_path=None, quantize_and_serve=False, rl_quant_profile=None, mem_fraction_static=0.771, max_running_requests=None, max_queued_requests=None, max_total_tokens=None, chunked_prefill_size=2048, enable_dynamic_chunking=False, max_prefill_tokens=16384, prefill_max_requests=None, schedule_policy='fcfs', enable_priority_scheduling=False, abort_on_priority_when_disabled=False, schedule_low_priority_values_first=False, priority_scheduling_preemption_threshold=10, schedule_conservativeness=1.0, page_size=1, swa_full_tokens_ratio=0.8, disable_hybrid_swa_memory=False, radix_eviction_policy='lru', enable_prefill_delayer=False, prefill_delayer_max_delay_passes=30, prefill_delayer_token_usage_low_watermark=None, prefill_delayer_forward_passes_buckets=None, prefill_delayer_wait_seconds_buckets=None, device='cuda', tp_size=1, pp_size=1, pp_max_micro_batch_size=None, pp_async_batch_depth=0, stream_interval=1, stream_output=False, random_seed=798199450, constrained_json_whitespace_pattern=None, constrained_json_disable_any_whitespace=False, watchdog_timeout=300, soft_watchdog_timeout=None, dist_timeout=None, download_dir=None, model_checksum=None, base_gpu_id=0, gpu_id_step=1, sleep_on_idle=False, custom_sigquit_handler=None, log_level='info', log_level_http=None, log_requests=False, log_requests_level=2, log_requests_format='text', log_requests_target=None, uvicorn_access_log_exclude_prefixes=[], crash_dump_folder=None, show_time_cost=False, enable_metrics=False, enable_metrics_for_all_schedulers=False, tokenizer_metrics_custom_labels_header='x-custom-labels', tokenizer_metrics_allowed_custom_labels=None, extra_metric_labels=None, bucket_time_to_first_token=None, bucket_inter_token_latency=None, bucket_e2e_request_latency=None, collect_tokens_histogram=False, prompt_tokens_buckets=None, generation_tokens_buckets=None, gc_warning_threshold_secs=0.0, decode_log_interval=40, enable_request_time_stats_logging=False, kv_events_config=None, enable_trace=False, otlp_traces_endpoint='localhost:4317', export_metrics_to_file=False, export_metrics_to_file_dir=None, api_key=None, admin_api_key=None, served_model_name='Qwen/Qwen3-0.6B', weight_version='default', chat_template=None, hf_chat_template_name=None, completion_template=None, file_storage_path='sglang_storage', enable_cache_report=False, reasoning_parser=None, tool_call_parser=None, tool_server=None, sampling_defaults='model', dp_size=1, load_balance_method='round_robin', attn_cp_size=1, moe_dp_size=1, dist_init_addr=None, nnodes=1, node_rank=0, json_model_override_args='{}', preferred_sampling_params=None, enable_lora=None, enable_lora_overlap_loading=None, max_lora_rank=None, lora_target_modules=None, lora_paths=None, max_loaded_loras=None, max_loras_per_batch=8, lora_eviction_policy='lru', lora_backend='csgmv', max_lora_chunk_size=16, attention_backend='flashinfer', decode_attention_backend=None, prefill_attention_backend=None, sampling_backend='flashinfer', grammar_backend='xgrammar', mm_attention_backend=None, fp8_gemm_runner_backend='auto', fp4_gemm_runner_backend='flashinfer_cutlass', nsa_prefill_backend=None, nsa_decode_backend=None, disable_flashinfer_autotune=False, mamba_backend='triton', speculative_algorithm=None, speculative_draft_model_path=None, speculative_draft_model_revision=None, speculative_draft_load_format=None, speculative_num_steps=None, speculative_eagle_topk=None, speculative_num_draft_tokens=None, speculative_accept_threshold_single=1.0, speculative_accept_threshold_acc=1.0, speculative_token_map=None, speculative_attention_mode='prefill', speculative_draft_attention_backend=None, speculative_moe_runner_backend='auto', speculative_moe_a2a_backend=None, speculative_draft_model_quantization=None, speculative_ngram_min_match_window_size=1, speculative_ngram_max_match_window_size=12, speculative_ngram_min_bfs_breadth=1, speculative_ngram_max_bfs_breadth=10, speculative_ngram_match_type='BFS', speculative_ngram_branch_length=18, speculative_ngram_capacity=10000000, enable_multi_layer_eagle=False, ep_size=1, moe_a2a_backend='none', moe_runner_backend='auto', flashinfer_mxfp4_moe_precision='default', enable_flashinfer_allreduce_fusion=False, deepep_mode='auto', ep_num_redundant_experts=0, ep_dispatch_algorithm=None, init_expert_location='trivial', enable_eplb=False, eplb_algorithm='auto', eplb_rebalance_num_iterations=1000, eplb_rebalance_layers_per_chunk=None, eplb_min_rebalancing_utilization_threshold=1.0, expert_distribution_recorder_mode=None, expert_distribution_recorder_buffer_size=1000, enable_expert_distribution_metrics=False, deepep_config=None, moe_dense_tp_size=None, elastic_ep_backend=None, mooncake_ib_device=None, max_mamba_cache_size=None, mamba_ssm_dtype=None, mamba_full_memory_ratio=0.9, mamba_scheduler_strategy='no_buffer', mamba_track_interval=256, enable_hierarchical_cache=False, hicache_ratio=2.0, hicache_size=0, hicache_write_policy='write_through', hicache_io_backend='kernel', hicache_mem_layout='layer_first', disable_hicache_numa_detect=False, hicache_storage_backend=None, hicache_storage_prefetch_policy='best_effort', hicache_storage_backend_extra_config=None, hierarchical_sparse_attention_extra_config=None, enable_lmcache=False, kt_weight_path=None, kt_method='AMXINT4', kt_cpuinfer=None, kt_threadpool_count=2, kt_num_gpu_experts=None, kt_max_deferred_experts_per_token=None, dllm_algorithm=None, dllm_algorithm_config=None, enable_double_sparsity=False, ds_channel_config_path=None, ds_heavy_channel_num=32, ds_heavy_token_num=256, ds_heavy_channel_type='qk', ds_sparse_decode_threshold=4096, cpu_offload_gb=0, offload_group_size=-1, offload_num_in_group=1, offload_prefetch_step=1, offload_mode='cpu', multi_item_scoring_delimiter=None, disable_radix_cache=False, cuda_graph_max_bs=8, cuda_graph_bs=[1, 2, 4, 8], disable_cuda_graph=False, disable_cuda_graph_padding=False, enable_profile_cuda_graph=False, enable_cudagraph_gc=False, enable_layerwise_nvtx_marker=False, enable_nccl_nvls=False, enable_symm_mem=False, disable_flashinfer_cutlass_moe_fp4_allgather=False, enable_tokenizer_batch_encode=False, disable_tokenizer_batch_decode=False, disable_outlines_disk_cache=False, disable_custom_all_reduce=False, enable_mscclpp=False, enable_torch_symm_mem=False, disable_overlap_schedule=False, enable_mixed_chunk=False, enable_dp_attention=False, enable_dp_lm_head=False, enable_two_batch_overlap=False, enable_single_batch_overlap=False, tbo_token_distribution_threshold=0.48, enable_torch_compile=False, enable_piecewise_cuda_graph=False, enable_torch_compile_debug_mode=False, torch_compile_max_bs=32, piecewise_cuda_graph_max_tokens=2048, piecewise_cuda_graph_tokens=[4, 8, 12, 16, 20, 24, 28, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 256, 288, 320, 352, 384, 416, 448, 480, 512, 576, 640, 704, 768, 832, 896, 960, 1024, 1280, 1536, 1792, 2048], piecewise_cuda_graph_compiler='eager', torchao_config='', enable_nan_detection=False, enable_p2p_check=False, triton_attention_reduce_in_fp32=False, triton_attention_num_kv_splits=8, triton_attention_split_tile_size=None, num_continuous_decode_steps=1, delete_ckpt_after_loading=False, enable_memory_saver=False, enable_weights_cpu_backup=False, enable_draft_weights_cpu_backup=False, allow_auto_truncate=False, enable_custom_logit_processor=False, flashinfer_mla_disable_ragged=False, disable_shared_experts_fusion=False, disable_chunked_prefix_cache=False, disable_fast_image_processor=False, keep_mm_feature_on_device=False, enable_return_hidden_states=False, enable_return_routed_experts=False, scheduler_recv_interval=1, numa_node=None, enable_deterministic_inference=False, rl_on_policy_target=None, enable_attn_tp_input_scattered=False, enable_nsa_prefill_context_parallel=False, nsa_prefill_cp_mode='round-robin-split', enable_fused_qk_norm_rope=False, enable_precise_embedding_interpolation=False, enable_dynamic_batch_tokenizer=False, dynamic_batch_tokenizer_batch_size=32, dynamic_batch_tokenizer_batch_timeout=0.002, debug_tensor_dump_output_folder=None, debug_tensor_dump_layers=None, debug_tensor_dump_input_file=None, debug_tensor_dump_inject=False, disaggregation_mode='null', disaggregation_transfer_backend='mooncake', disaggregation_bootstrap_port=8998, disaggregation_decode_tp=None, disaggregation_decode_dp=None, disaggregation_prefill_pp=1, disaggregation_ib_device=None, disaggregation_decode_enable_offload_kvcache=False, num_reserved_decode_tokens=512, disaggregation_decode_polling_interval=1, encoder_only=False, language_only=False, encoder_transfer_backend='zmq_to_scheduler', encoder_urls=[], custom_weight_loader=[], weight_loader_disable_mmap=False, remote_instance_weight_loader_seed_instance_ip=None, remote_instance_weight_loader_seed_instance_service_port=None, remote_instance_weight_loader_send_weights_group_ports=None, remote_instance_weight_loader_backend='nccl', remote_instance_weight_loader_start_seed_via_transfer_engine=False, enable_pdmux=False, pdmux_config_path=None, sm_group_num=8, mm_max_concurrent_calls=32, mm_per_request_timeout=10.0, enable_broadcast_mm_inputs_process=False, enable_prefix_mm_cache=False, mm_enable_dp_encoder=False, mm_process_config={}, limit_mm_data_per_request=None, decrypted_config_file=None, decrypted_draft_config_file=None, forward_hooks=None)
+tokenizer_config.json: 9.73kB [00:00, 28.4MB/s]
+vocab.json: 2.78MB [00:00, 10.1MB/s]
+merges.txt: 1.67MB [00:00, 9.32MB/s]
+tokenizer.json: 100%|██████████████████████████████████████████████████████████████| 11.4M/11.4M [00:01<00:00, 6.23MB/s]
+/tmp/tmp1qrj0d64/cuda_utils.c:6:10: fatal error: Python.h: No such file or directory
+    6 | #include <Python.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/layers/attention/fla/utils.py:212: UserWarning: Triton is not supported on current platform, roll back to CPU.
+  warnings.warn(
+/tmp/tmp38zpgy1m/cuda_utils.c:6:10: fatal error: Python.h: No such file or directory
+    6 | #include <Python.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/layers/attention/fla/utils.py:212: UserWarning: Triton is not supported on current platform, roll back to CPU.
+  warnings.warn(
+[2026-04-24 02:47:25] Using default HuggingFace chat template with detected content format: string
+[2026-04-24 02:47:30] Mamba selective_state_update backend initialized: triton
+[2026-04-24 02:47:31] Init torch distributed begin.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[2026-04-24 02:47:31] Init torch distributed ends. elapsed=0.22 s, mem usage=0.02 GB
+/tmp/tmpexjv5qv3/cuda_utils.c:6:10: fatal error: Python.h: No such file or directory
+    6 | #include <Python.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/layers/attention/fla/utils.py:212: UserWarning: Triton is not supported on current platform, roll back to CPU.
+  warnings.warn(
+[2026-04-24 02:47:33] Ignore import error when loading sglang.srt.models.glm_ocr: No module named 'transformers.models.glm_ocr'
+[2026-04-24 02:47:33] Ignore import error when loading sglang.srt.models.glm_ocr_nextn: No module named 'transformers.models.glm_ocr'
+[2026-04-24 02:47:33] Ignore import error when loading sglang.srt.models.glmasr: cannot import name 'GlmAsrConfig' from 'transformers' (/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/transformers/__init__.py)
+[2026-04-24 02:47:33] Load weight begin. avail mem=14.77 GB
+[2026-04-24 02:47:34] Local HF snapshot at /home/m/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca has no files matching ['*.safetensors', '*.bin', '*.pt']; will attempt download.
+[2026-04-24 02:47:34] Using model weights format ['*.safetensors']
+model.safetensors:   4%|██▋                                                         | 66.9M/1.50G [01:59<44:17, 540kB/s]^CProcess Process-2:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/managers/detokenizer_manager.py", line 444, in run_detokenizer_process
+    manager.event_loop()
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/managers/detokenizer_manager.py", line 148, in event_loop
+    recv_obj = self.recv_from_scheduler.recv_pyobj()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/zmq/sugar/socket.py", line 989, in recv_pyobj
+    msg = self.recv(flags)
+          ^^^^^^^^^^^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 1218, in zmq.backend.cython._zmq.Socket.recv
+    def recv(self, flags=0, copy: bint = True, track: bint = False):
+    ^^^^^^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 1253, in zmq.backend.cython._zmq.Socket.recv
+    return _recv_copy(self.handle, flags)
+    ^^^^^^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 1408, in zmq.backend.cython._zmq._recv_copy
+    _check_rc(rc)
+    ^^^^^^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 179, in zmq.backend.cython._zmq._check_rc
+    PyErr_CheckSignals()
+    ^^^^^^^^^^^
+KeyboardInterrupt
+^CCancellation requested; stopping current tasks.
+Process Process-1:
+Traceback (most recent call last):
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 633, in xet_get
+    download_files(
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/managers/scheduler.py", line 3130, in run_scheduler_process
+    scheduler = Scheduler(
+                ^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/managers/scheduler.py", line 368, in __init__
+    self.init_model_worker()
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/managers/scheduler.py", line 564, in init_model_worker
+    self.init_tp_model_worker()
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/managers/scheduler.py", line 522, in init_tp_model_worker
+    self.tp_worker = TpModelWorker(
+                     ^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/managers/tp_worker.py", line 247, in __init__
+    self._init_model_runner()
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/managers/tp_worker.py", line 330, in _init_model_runner
+    self._model_runner = ModelRunner(
+                         ^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/model_executor/model_runner.py", line 413, in __init__
+    self.initialize(min_per_gpu_memory)
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/model_executor/model_runner.py", line 493, in initialize
+    self.load_model()
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/model_executor/model_runner.py", line 980, in load_model
+    self.model = self.loader.load_model(
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/model_loader/loader.py", line 677, in load_model
+    self.load_weights_and_postprocess(
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/model_loader/loader.py", line 686, in load_weights_and_postprocess
+    model.load_weights(weights)
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/models/qwen3.py", line 492, in load_weights
+    for name, loaded_weight in weights:
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/model_loader/loader.py", line 570, in _get_all_weights
+    yield from self._get_weights_iterator(primary_weights)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/model_loader/loader.py", line 480, in _get_weights_iterator
+    hf_folder, hf_weights_files, use_safetensors = self._prepare_weights(
+                                                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/model_loader/loader.py", line 423, in _prepare_weights
+    hf_folder = download_weights_from_hf(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/model_loader/weight_utils.py", line 517, in download_weights_from_hf
+    hf_folder = snapshot_download(
+                ^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/huggingface_hub/_snapshot_download.py", line 330, in snapshot_download
+    _inner_hf_hub_download(file)
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/huggingface_hub/_snapshot_download.py", line 306, in _inner_hf_hub_download
+    return hf_hub_download(
+           ^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1175, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1727, in _download_to_tmp_and_move
+    xet_get(
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 628, in xet_get
+    with progress_cm as progress:
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/tqdm/std.py", line 1138, in __exit__
+    def __exit__(self, exc_type, exc_value, traceback):
+    
+KeyboardInterrupt
+model.safetensors:   4%|██▋                                                         | 66.9M/1.50G [02:09<46:29, 515kB/s]
+[rank0]:[W424 02:49:45.727158912 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/launch_server.py", line 35, in <module>
+    run_server(server_args)
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/launch_server.py", line 28, in run_server
+    launch_server(server_args)
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/entrypoints/http_server.py", line 1894, in launch_server
+    _launch_subprocesses(
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/entrypoints/engine.py", line 1084, in _launch_subprocesses
+    scheduler_infos = _wait_for_scheduler_ready(scheduler_pipe_readers, scheduler_procs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/entrypoints/engine.py", line 894, in _wait_for_scheduler_ready
+    data = scheduler_pipe_readers[i].recv()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/connection.py", line 395, in _recv
+    chunk = read(handle, remaining)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+(my_python_project) m@m-HP-Z440-Workstation:~/Desktop/sglang/my_python_project$ 
+python -m sglang.launch_server --model-path /home/m/Desktop/my_local_models/Qwen3-0.6B --port 30000
+/tmp/tmpfokp65b5/cuda_utils.c:6:10: fatal error: Python.h: No such file or directory
+    6 | #include <Python.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/layers/attention/fla/utils.py:212: UserWarning: Triton is not supported on current platform, roll back to CPU.
+  warnings.warn(
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/launch_server.py", line 32, in <module>
+    server_args = prepare_server_args(sys.argv[1:])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/server_args.py", line 5592, in prepare_server_args
+    return ServerArgs.from_cli_args(raw_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/server_args.py", line 5078, in from_cli_args
+    return cls(**{attr: getattr(args, attr) for attr in attrs})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 331, in __init__
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/server_args.py", line 733, in __post_init__
+    self._handle_gpu_memory_settings(gpu_mem)
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/server_args.py", line 1010, in _handle_gpu_memory_settings
+    if not self.use_mla_backend():
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/server_args.py", line 5111, in use_mla_backend
+    model_config = self.get_model_config()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/server_args.py", line 5092, in get_model_config
+    self.model_config = ModelConfig.from_server_args(self)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/configs/model_config.py", line 250, in from_server_args
+    return ModelConfig(
+           ^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/configs/model_config.py", line 127, in __init__
+    self.hf_config = get_config(
+                     ^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/utils/common.py", line 3475, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/utils/hf_transformers_utils.py", line 320, in get_config
+    raise e
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/sglang/srt/utils/hf_transformers_utils.py", line 315, in get_config
+    config = AutoConfig.from_pretrained(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 1380, in from_pretrained
+    raise ValueError(
+ValueError: Unrecognized model in /home/m/Desktop/my_local_models/Qwen3-0.6B. Should have a `model_type` key in its config.json, or contain one of the following strings in its name: aimv2, aimv2_vision_model, albert, align, altclip, apertus, arcee, aria, aria_text, audio-spectrogram-transformer, autoformer, aya_vision, bamba, bark, bart, beit, bert, bert-generation, big_bird, bigbird_pegasus, biogpt, bit, bitnet, blenderbot, blenderbot-small, blip, blip-2, blip_2_qformer, bloom, blt, bridgetower, bros, camembert, canine, chameleon, chinese_clip, chinese_clip_vision_model, clap, clip, clip_text_model, clip_vision_model, clipseg, clvp, code_llama, codegen, cohere, cohere2, cohere2_vision, colpali, colqwen2, conditional_detr, convbert, convnext, convnextv2, cpmant, csm, ctrl, cvt, d_fine, dab-detr, dac, data2vec-audio, data2vec-text, data2vec-vision, dbrx, deberta, deberta-v2, decision_transformer, deepseek_v2, deepseek_v3, deepseek_vl, deepseek_vl_hybrid, deformable_detr, deit, depth_anything, depth_pro, deta, detr, dia, diffllama, dinat, dinov2, dinov2_with_registers, dinov3_convnext, dinov3_vit, distilbert, doge, donut-swin, dots1, dpr, dpt, edgetam, edgetam_video, edgetam_vision_model, efficientformer, efficientloftr, efficientnet, electra, emu3, encodec, encoder-decoder, eomt, ernie, ernie4_5, ernie4_5_moe, ernie_m, esm, evolla, exaone4, falcon, falcon_h1, falcon_mamba, fastspeech2_conformer, fastspeech2_conformer_with_hifigan, flaubert, flava, flex_olmo, florence2, fnet, focalnet, fsmt, funnel, fuyu, gemma, gemma2, gemma3, gemma3_text, gemma3n, gemma3n_audio, gemma3n_text, gemma3n_vision, git, glm, glm4, glm4_moe, glm4v, glm4v_moe, glm4v_moe_text, glm4v_text, glpn, got_ocr2, gpt-sw3, gpt2, gpt_bigcode, gpt_neo, gpt_neox, gpt_neox_japanese, gpt_oss, gptj, gptsan-japanese, granite, granite_speech, granitemoe, granitemoehybrid, granitemoeshared, granitevision, graphormer, grounding-dino, groupvit, helium, hgnet_v2, hiera, hubert, hunyuan_v1_dense, hunyuan_v1_moe, ibert, idefics, idefics2, idefics3, idefics3_vision, ijepa, imagegpt, informer, instructblip, instructblipvideo, internvl, internvl_vision, jamba, janus, jetmoe, jukebox, kosmos-2, kosmos-2.5, kyutai_speech_to_text, layoutlm, layoutlmv2, layoutlmv3, led, levit, lfm2, lfm2_vl, lightglue, lilt, llama, llama4, llama4_text, llava, llava_next, llava_next_video, llava_onevision, longcat_flash, longformer, longt5, luke, lxmert, m2m_100, mamba, mamba2, marian, markuplm, mask2former, maskformer, maskformer-swin, mbart, mctct, mega, megatron-bert, metaclip_2, mgp-str, mimi, minimax, ministral, mistral, mistral3, mixtral, mlcd, mllama, mm-grounding-dino, mobilebert, mobilenet_v1, mobilenet_v2, mobilevit, mobilevitv2, modernbert, modernbert-decoder, moonshine, moshi, mpnet, mpt, mra, mt5, musicgen, musicgen_melody, mvp, nat, nemotron, nezha, nllb-moe, nougat, nystromformer, olmo, olmo2, olmo3, olmoe, omdet-turbo, oneformer, open-llama, openai-gpt, opt, ovis2, owlv2, owlvit, paligemma, parakeet_ctc, parakeet_encoder, patchtsmixer, patchtst, pegasus, pegasus_x, perceiver, perception_encoder, perception_lm, persimmon, phi, phi3, phi4_multimodal, phimoe, pix2struct, pixtral, plbart, poolformer, pop2piano, prompt_depth_anything, prophetnet, pvt, pvt_v2, qdqbert, qwen2, qwen2_5_omni, qwen2_5_vl, qwen2_5_vl_text, qwen2_audio, qwen2_audio_encoder, qwen2_moe, qwen2_vl, qwen2_vl_text, qwen3, qwen3_moe, qwen3_next, qwen3_omni_moe, qwen3_vl, qwen3_vl_moe, qwen3_vl_moe_text, qwen3_vl_text, rag, realm, recurrent_gemma, reformer, regnet, rembert, resnet, retribert, roberta, roberta-prelayernorm, roc_bert, roformer, rt_detr, rt_detr_resnet, rt_detr_v2, rwkv, sam, sam2, sam2_hiera_det_model, sam2_video, sam2_vision_model, sam_hq, sam_hq_vision_model, sam_vision_model, seamless_m4t, seamless_m4t_v2, seed_oss, segformer, seggpt, sew, sew-d, shieldgemma2, siglip, siglip2, siglip2_vision_model, siglip_vision_model, smollm3, smolvlm, smolvlm_vision, speech-encoder-decoder, speech_to_text, speech_to_text_2, speecht5, splinter, squeezebert, stablelm, starcoder2, superglue, superpoint, swiftformer, swin, swin2sr, swinv2, switch_transformers, t5, t5gemma, table-transformer, tapas, textnet, time_series_transformer, timesfm, timesformer, timm_backbone, timm_wrapper, trajectory_transformer, transfo-xl, trocr, tvlt, tvp, udop, umt5, unispeech, unispeech-sat, univnet, upernet, van, vaultgemma, video_llava, videomae, vilt, vipllava, vision-encoder-decoder, vision-text-dual-encoder, visual_bert, vit, vit_hybrid, vit_mae, vit_msn, vitdet, vitmatte, vitpose, vitpose_backbone, vits, vivit, vjepa2, voxtral, voxtral_encoder, wav2vec2, wav2vec2-bert, wav2vec2-conformer, wavlm, whisper, xclip, xcodec, xglm, xlm, xlm-prophetnet, xlm-roberta, xlm-roberta-xl, xlnet, xlstm, xmod, yolos, yoso, zamba, zamba2, zoedepth, lfm2, lfm2_moe, afmoe, bailing_hybrid, chatglm, exaone, deepseek_vl_v2, multi_modality, kimi_vl, internvl_chat, step3_vl, kimi_linear, dots_vlm, dots_ocr, NemotronH_Nano_VL_V2, nemotron_h, deepseek-ocr, qwen3_5, qwen3_5_moe, jet_nemotron, jet_vlm, kimi_k25, step3p5
+(my_python_project) m@m-HP-Z440-Workstation:~/Desktop/sglang/my_python_project$ python -m sglang.launch_server --model-path /home/m/Desktop/my_local_models/Qwen3-0.6B/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca --port 30000
+[2026-04-24 02:56:50] INFO server_args.py:1835: Attention backend not specified. Use flashinfer backend by default.
+[2026-04-24 02:56:51] server_args=ServerArgs(model_path='/home/m/Desktop/my_local_models/Qwen3-0.6B/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca', tokenizer_path='/home/m/Desktop/my_local_models/Qwen3-0.6B/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca', tokenizer_mode='auto', tokenizer_worker_num=1, skip_tokenizer_init=False, load_format='auto', model_loader_extra_config='{}', trust_remote_code=False, context_length=None, is_embedding=False, enable_multimodal=None, revision=None, model_impl='auto', host='127.0.0.1', port=30000, fastapi_root_path='', grpc_mode=False, skip_server_warmup=False, warmups=None, nccl_port=None, checkpoint_engine_wait_weights_before_ready=False, dtype='auto', quantization=None, quantization_param_path=None, kv_cache_dtype='auto', enable_fp32_lm_head=False, modelopt_quant=None, modelopt_checkpoint_restore_path=None, modelopt_checkpoint_save_path=None, modelopt_export_path=None, quantize_and_serve=False, rl_quant_profile=None, mem_fraction_static=0.771, max_running_requests=None, max_queued_requests=None, max_total_tokens=None, chunked_prefill_size=2048, enable_dynamic_chunking=False, max_prefill_tokens=16384, prefill_max_requests=None, schedule_policy='fcfs', enable_priority_scheduling=False, abort_on_priority_when_disabled=False, schedule_low_priority_values_first=False, priority_scheduling_preemption_threshold=10, schedule_conservativeness=1.0, page_size=1, swa_full_tokens_ratio=0.8, disable_hybrid_swa_memory=False, radix_eviction_policy='lru', enable_prefill_delayer=False, prefill_delayer_max_delay_passes=30, prefill_delayer_token_usage_low_watermark=None, prefill_delayer_forward_passes_buckets=None, prefill_delayer_wait_seconds_buckets=None, device='cuda', tp_size=1, pp_size=1, pp_max_micro_batch_size=None, pp_async_batch_depth=0, stream_interval=1, stream_output=False, random_seed=844756786, constrained_json_whitespace_pattern=None, constrained_json_disable_any_whitespace=False, watchdog_timeout=300, soft_watchdog_timeout=None, dist_timeout=None, download_dir=None, model_checksum=None, base_gpu_id=0, gpu_id_step=1, sleep_on_idle=False, custom_sigquit_handler=None, log_level='info', log_level_http=None, log_requests=False, log_requests_level=2, log_requests_format='text', log_requests_target=None, uvicorn_access_log_exclude_prefixes=[], crash_dump_folder=None, show_time_cost=False, enable_metrics=False, enable_metrics_for_all_schedulers=False, tokenizer_metrics_custom_labels_header='x-custom-labels', tokenizer_metrics_allowed_custom_labels=None, extra_metric_labels=None, bucket_time_to_first_token=None, bucket_inter_token_latency=None, bucket_e2e_request_latency=None, collect_tokens_histogram=False, prompt_tokens_buckets=None, generation_tokens_buckets=None, gc_warning_threshold_secs=0.0, decode_log_interval=40, enable_request_time_stats_logging=False, kv_events_config=None, enable_trace=False, otlp_traces_endpoint='localhost:4317', export_metrics_to_file=False, export_metrics_to_file_dir=None, api_key=None, admin_api_key=None, served_model_name='/home/m/Desktop/my_local_models/Qwen3-0.6B/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca', weight_version='default', chat_template=None, hf_chat_template_name=None, completion_template=None, file_storage_path='sglang_storage', enable_cache_report=False, reasoning_parser=None, tool_call_parser=None, tool_server=None, sampling_defaults='model', dp_size=1, load_balance_method='round_robin', attn_cp_size=1, moe_dp_size=1, dist_init_addr=None, nnodes=1, node_rank=0, json_model_override_args='{}', preferred_sampling_params=None, enable_lora=None, enable_lora_overlap_loading=None, max_lora_rank=None, lora_target_modules=None, lora_paths=None, max_loaded_loras=None, max_loras_per_batch=8, lora_eviction_policy='lru', lora_backend='csgmv', max_lora_chunk_size=16, attention_backend='flashinfer', decode_attention_backend=None, prefill_attention_backend=None, sampling_backend='flashinfer', grammar_backend='xgrammar', mm_attention_backend=None, fp8_gemm_runner_backend='auto', fp4_gemm_runner_backend='flashinfer_cutlass', nsa_prefill_backend=None, nsa_decode_backend=None, disable_flashinfer_autotune=False, mamba_backend='triton', speculative_algorithm=None, speculative_draft_model_path=None, speculative_draft_model_revision=None, speculative_draft_load_format=None, speculative_num_steps=None, speculative_eagle_topk=None, speculative_num_draft_tokens=None, speculative_accept_threshold_single=1.0, speculative_accept_threshold_acc=1.0, speculative_token_map=None, speculative_attention_mode='prefill', speculative_draft_attention_backend=None, speculative_moe_runner_backend='auto', speculative_moe_a2a_backend=None, speculative_draft_model_quantization=None, speculative_ngram_min_match_window_size=1, speculative_ngram_max_match_window_size=12, speculative_ngram_min_bfs_breadth=1, speculative_ngram_max_bfs_breadth=10, speculative_ngram_match_type='BFS', speculative_ngram_branch_length=18, speculative_ngram_capacity=10000000, enable_multi_layer_eagle=False, ep_size=1, moe_a2a_backend='none', moe_runner_backend='auto', flashinfer_mxfp4_moe_precision='default', enable_flashinfer_allreduce_fusion=False, deepep_mode='auto', ep_num_redundant_experts=0, ep_dispatch_algorithm=None, init_expert_location='trivial', enable_eplb=False, eplb_algorithm='auto', eplb_rebalance_num_iterations=1000, eplb_rebalance_layers_per_chunk=None, eplb_min_rebalancing_utilization_threshold=1.0, expert_distribution_recorder_mode=None, expert_distribution_recorder_buffer_size=1000, enable_expert_distribution_metrics=False, deepep_config=None, moe_dense_tp_size=None, elastic_ep_backend=None, mooncake_ib_device=None, max_mamba_cache_size=None, mamba_ssm_dtype=None, mamba_full_memory_ratio=0.9, mamba_scheduler_strategy='no_buffer', mamba_track_interval=256, enable_hierarchical_cache=False, hicache_ratio=2.0, hicache_size=0, hicache_write_policy='write_through', hicache_io_backend='kernel', hicache_mem_layout='layer_first', disable_hicache_numa_detect=False, hicache_storage_backend=None, hicache_storage_prefetch_policy='best_effort', hicache_storage_backend_extra_config=None, hierarchical_sparse_attention_extra_config=None, enable_lmcache=False, kt_weight_path=None, kt_method='AMXINT4', kt_cpuinfer=None, kt_threadpool_count=2, kt_num_gpu_experts=None, kt_max_deferred_experts_per_token=None, dllm_algorithm=None, dllm_algorithm_config=None, enable_double_sparsity=False, ds_channel_config_path=None, ds_heavy_channel_num=32, ds_heavy_token_num=256, ds_heavy_channel_type='qk', ds_sparse_decode_threshold=4096, cpu_offload_gb=0, offload_group_size=-1, offload_num_in_group=1, offload_prefetch_step=1, offload_mode='cpu', multi_item_scoring_delimiter=None, disable_radix_cache=False, cuda_graph_max_bs=8, cuda_graph_bs=[1, 2, 4, 8], disable_cuda_graph=False, disable_cuda_graph_padding=False, enable_profile_cuda_graph=False, enable_cudagraph_gc=False, enable_layerwise_nvtx_marker=False, enable_nccl_nvls=False, enable_symm_mem=False, disable_flashinfer_cutlass_moe_fp4_allgather=False, enable_tokenizer_batch_encode=False, disable_tokenizer_batch_decode=False, disable_outlines_disk_cache=False, disable_custom_all_reduce=False, enable_mscclpp=False, enable_torch_symm_mem=False, disable_overlap_schedule=False, enable_mixed_chunk=False, enable_dp_attention=False, enable_dp_lm_head=False, enable_two_batch_overlap=False, enable_single_batch_overlap=False, tbo_token_distribution_threshold=0.48, enable_torch_compile=False, enable_piecewise_cuda_graph=False, enable_torch_compile_debug_mode=False, torch_compile_max_bs=32, piecewise_cuda_graph_max_tokens=2048, piecewise_cuda_graph_tokens=[4, 8, 12, 16, 20, 24, 28, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 256, 288, 320, 352, 384, 416, 448, 480, 512, 576, 640, 704, 768, 832, 896, 960, 1024, 1280, 1536, 1792, 2048], piecewise_cuda_graph_compiler='eager', torchao_config='', enable_nan_detection=False, enable_p2p_check=False, triton_attention_reduce_in_fp32=False, triton_attention_num_kv_splits=8, triton_attention_split_tile_size=None, num_continuous_decode_steps=1, delete_ckpt_after_loading=False, enable_memory_saver=False, enable_weights_cpu_backup=False, enable_draft_weights_cpu_backup=False, allow_auto_truncate=False, enable_custom_logit_processor=False, flashinfer_mla_disable_ragged=False, disable_shared_experts_fusion=False, disable_chunked_prefix_cache=False, disable_fast_image_processor=False, keep_mm_feature_on_device=False, enable_return_hidden_states=False, enable_return_routed_experts=False, scheduler_recv_interval=1, numa_node=None, enable_deterministic_inference=False, rl_on_policy_target=None, enable_attn_tp_input_scattered=False, enable_nsa_prefill_context_parallel=False, nsa_prefill_cp_mode='round-robin-split', enable_fused_qk_norm_rope=False, enable_precise_embedding_interpolation=False, enable_dynamic_batch_tokenizer=False, dynamic_batch_tokenizer_batch_size=32, dynamic_batch_tokenizer_batch_timeout=0.002, debug_tensor_dump_output_folder=None, debug_tensor_dump_layers=None, debug_tensor_dump_input_file=None, debug_tensor_dump_inject=False, disaggregation_mode='null', disaggregation_transfer_backend='mooncake', disaggregation_bootstrap_port=8998, disaggregation_decode_tp=None, disaggregation_decode_dp=None, disaggregation_prefill_pp=1, disaggregation_ib_device=None, disaggregation_decode_enable_offload_kvcache=False, num_reserved_decode_tokens=512, disaggregation_decode_polling_interval=1, encoder_only=False, language_only=False, encoder_transfer_backend='zmq_to_scheduler', encoder_urls=[], custom_weight_loader=[], weight_loader_disable_mmap=False, remote_instance_weight_loader_seed_instance_ip=None, remote_instance_weight_loader_seed_instance_service_port=None, remote_instance_weight_loader_send_weights_group_ports=None, remote_instance_weight_loader_backend='nccl', remote_instance_weight_loader_start_seed_via_transfer_engine=False, enable_pdmux=False, pdmux_config_path=None, sm_group_num=8, mm_max_concurrent_calls=32, mm_per_request_timeout=10.0, enable_broadcast_mm_inputs_process=False, enable_prefix_mm_cache=False, mm_enable_dp_encoder=False, mm_process_config={}, limit_mm_data_per_request=None, decrypted_config_file=None, decrypted_draft_config_file=None, forward_hooks=None)
+[2026-04-24 02:56:51] Using default HuggingFace chat template with detected content format: string
+[2026-04-24 02:57:00] Mamba selective_state_update backend initialized: triton
+[2026-04-24 02:57:00] Init torch distributed begin.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[2026-04-24 02:57:00] Init torch distributed ends. elapsed=0.18 s, mem usage=0.02 GB
+[2026-04-24 02:57:00] Ignore import error when loading sglang.srt.models.glm_ocr: No module named 'transformers.models.glm_ocr'
+[2026-04-24 02:57:00] Ignore import error when loading sglang.srt.models.glm_ocr_nextn: No module named 'transformers.models.glm_ocr'
+[2026-04-24 02:57:00] Ignore import error when loading sglang.srt.models.glmasr: cannot import name 'GlmAsrConfig' from 'transformers' (/home/m/Desktop/sglang/my_python_project/.venv/lib/python3.12/site-packages/transformers/__init__.py)
+[2026-04-24 02:57:01] Load weight begin. avail mem=14.82 GB
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+[2026-04-24 02:57:01] Parameter lm_head.weight not found in params_dict
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  4.29it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  4.28it/s]
+
+[2026-04-24 02:57:01] Load weight end. elapsed=0.35 s, type=Qwen3ForCausalLM, dtype=torch.bfloat16, avail mem=13.65 GB, mem usage=1.18 GB.
+[2026-04-24 02:57:01] Using KV cache dtype: torch.bfloat16
+[2026-04-24 02:57:01] KV Cache is allocated. #tokens: 95817, K size: 5.12 GB, V size: 5.12 GB
+[2026-04-24 02:57:01] Memory pool end. avail mem=3.04 GB
+[2026-04-24 02:57:01] Capture cuda graph begin. This can take up to several minutes. avail mem=2.47 GB
+[2026-04-24 02:57:01] Capture cuda graph bs [1, 2, 4, 8]
+Capturing batches (bs=1 avail_mem=2.41 GB): 100%|█████████████████████████████████████████| 4/4 [00:55<00:00, 13.80s/it]
+[2026-04-24 02:57:57] Capture cuda graph end. Time elapsed: 55.79 s. mem usage=0.09 GB. avail mem=2.39 GB.
+[2026-04-24 02:57:57] max_total_num_tokens=95817, chunked_prefill_size=2048, max_prefill_tokens=16384, max_running_requests=2048, context_len=40960, available_gpu_mem=2.39 GB
+[2026-04-24 02:57:58] INFO:     Started server process [77635]
+[2026-04-24 02:57:58] INFO:     Waiting for application startup.
+[2026-04-24 02:57:58] Using default chat sampling params from model generation config: {'repetition_penalty': 1.0, 'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
+[2026-04-24 02:57:58] INFO:     Application startup complete.
+[2026-04-24 02:57:58] INFO:     Uvicorn running on http://127.0.0.1:30000 (Press CTRL+C to quit)
+[2026-04-24 02:57:59] INFO:     127.0.0.1:47640 - "GET /model_info HTTP/1.1" 200 OK
+[2026-04-24 02:58:34] Prefill batch, #new-seq: 1, #new-token: 6, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, input throughput (token/s): 0.00, cuda graph: False
+[2026-04-24 02:58:34] INFO:     127.0.0.1:47648 - "POST /generate HTTP/1.1" 200 OK
+[2026-04-24 02:58:34] The server is fired up and ready to roll!
+[2026-04-24 02:59:27] Prefill batch, #new-seq: 1, #new-token: 22, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, input throughput (token/s): 0.11, cuda graph: False
+[2026-04-24 02:59:27] Decode batch, #running-req: 1, #token: 55, token usage: 0.00, cuda graph: True, gen throughput (token/s): 0.27, #queue-req: 0
+[2026-04-24 02:59:28] Decode batch, #running-req: 1, #token: 95, token usage: 0.00, cuda graph: True, gen throughput (token/s): 274.51, #queue-req: 0
+[2026-04-24 02:59:28] INFO:     127.0.0.1:34236 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+
+
